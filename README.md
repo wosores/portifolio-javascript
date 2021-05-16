@@ -1,2 +1,2 @@
 # portifolio-javascript
-sitem javascript puro
+site javascript puro
