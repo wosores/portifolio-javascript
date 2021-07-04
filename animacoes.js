@@ -13,7 +13,7 @@ function initTabNav(){
             tabContent[index].classList.add('ativo',direcao);
         }
         tabMenu.forEach((itemMenu, index) => {
-            itemMenu.addEventListener('click',() =>{
+            itemMenu.addEventListener('mouseover',() =>{
                 activeTab(index);
             });
        });
@@ -63,7 +63,7 @@ function initScrollSuave(){
     }
 
     linksInternos.forEach((link) => {
-        link.addEventListener('click', scrollToSection);
+        link.addEventListener('mouseover', scrollToSection);
     });
 }
 
