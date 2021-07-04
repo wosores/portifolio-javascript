@@ -33,7 +33,7 @@ function initAccordion(){
     }
 
     accordionList.forEach((item) => {
-        item.addEventListener('click',ActiveAccordion);
+        item.addEventListener('mouseover',ActiveAccordion);
     });
 }
 };
