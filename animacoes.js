@@ -123,11 +123,10 @@ initModal();
 
 
 function initTopo(){
-    function topo() {
-        window.scrollTo(0, 0);
-};
-    const btn = document.querySelector("#back-to-top");
-    btn.addEventListener('mouseover', topo
-    });
+var btn = document.querySelector("#back-to-top");
+btn.addEventListener("mouseover", function() {
+    window.scrollTo(0, 0);
+});
+
 };
 initTopo();
