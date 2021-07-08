@@ -97,3 +97,26 @@ animaScroll()
 window.addEventListener('scroll',animaScroll)
 }
 initAnimacaoScroll();
+
+function initModal(){
+    const botaoAbrir = document.querySelector('[data-modal="abrir"]');
+    const botaoFechar = document.querySelector('[data-modal="fechar"]');
+    const containerModal = document.querySelector('[data-modal="container"]');
+    console.log(botaoAbrir)
+    
+    if(botaoAbrir && botaoFechar && containerModal){
+    function toggleModal(event){
+        event.preventDefault();
+        containerModal.classList.toggle('ativo');
+    };
+    function fecharForaDoModal(event){
+        event.preventDefault();
+        if(event.target === this);
+        toggleModal(event);
+    };
+    botaoAbrir.addEventListener('mouseover',toggleModal);
+    botaoFechar.addEventListener('mouseover',toggleModal);
+    containerModal.addEventListener('click', fecharForaDoModal);
+};
+};
+initModal();
