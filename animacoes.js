@@ -122,7 +122,7 @@ function initModal(){
 initModal();
 function initTopo(){
     const btn = document.querySelector("#back-to-top");
-    btn.addEventListener("mouseover", function() {
+    btn.addEventListener('mouseover', function() {
         window.scrollTo(0, 0);
     });
 };
