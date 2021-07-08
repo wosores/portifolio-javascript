@@ -120,3 +120,8 @@ function initModal(){
 };
 };
 initModal();
+
+var btn = document.querySelector("#back-to-top");
+btn.addEventListener("mouseover", function() {
+    window.scrollTo(0, 0);
+});
