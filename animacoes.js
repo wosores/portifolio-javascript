@@ -158,6 +158,7 @@ const onMouseLeave ={
         this.tooltipBox.remove();
         //removeEventListener remove o evento onMouseLeave quando tira o mouse, deixando mais otimizado
         this.element.removeEventListener('mouseleave', onMouseLeave);
+        this.element.removeEventListener('mousemove', onMouseMove);
     }
 };
 const onMouseMove ={
