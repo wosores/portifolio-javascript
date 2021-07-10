@@ -400,5 +400,18 @@ body {
     color: whitesmoke;
     font-family: 'IBM Plex Mono', monospace;
     cursor: pointer;
+}
 
+.tooltip{
+    position: absolute;
+    z-index: 500;
+    background: rgba(0,0,0,.5);
+    box-shadow: 0 0 0 2px #fb5, 0 0 0 6px rgba(0,0,0,.5);
+    padding: .6rem;
+    color: whitesmoke;
+    font-family: 'IBM Plex Mono',monospace;
+    font-weight: bold;
+    font-size: .857rem;
+    max-width: 180px;
+    border-radius: 2px;
 }
