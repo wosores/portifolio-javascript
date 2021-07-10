@@ -130,3 +130,56 @@ btn.addEventListener("mouseover", function() {
 
 };
 initTopo();
+
+function initToolTip(){
+const tooltips = document.querySelectorAll('[data-tooltip]');
+tooltips.forEach((item)=>{
+    item.addEventListener('mouseover', onMouseOver);
+})
+
+function onMouseOver(event){
+
+    const tooltipBox = criarTooltipBox(this);
+
+    this.addEventListener('mouseleave', onMouseLeave);
+
+    onMouseLeave.tooltipBox = tooltipBox; //passa caracteristicas do tooltipBox onMouseOver para o tooltipBox do objeto onMouseLeave
+    onMouseLeave.element =this;
+    onMouseMove.tooltipBox = tooltipBox;
+
+    this.addEventListener('mousemove', onMouseMove); // segue mesma caracteristicas do objeto onMouseLeave sendo criada fora
+
+};
+const onMouseLeave ={
+    tooltipBox:'',
+    element:'',
+    handleEvent(){
+        //remove as divs
+        this.tooltipBox.remove();
+        //removeEventListener remove o evento onMouseLeave quando tira o mouse, deixando mais otimizado
+        this.element.removeEventListener('mouseleave', onMouseLeave);
+    }
+};
+const onMouseMove ={
+    handleEvent(event){
+        this.tooltipBox.style.top = event.pageY + 25 + 'px';
+        this.tooltipBox.style.left = event.pageX + 25 + 'px';
+    }
+};
+
+function criarTooltipBox(element){
+
+    const tooltipBox =document.createElement('div');
+
+
+    const text = element.getAttribute('aria-label'); 
+
+    tooltipBox.classList.add('tooltip');
+    tooltipBox.innerText=text;
+
+    document.body.appendChild(tooltipBox);
+    return tooltipBox;
+};
+};
+
+initToolTip();
