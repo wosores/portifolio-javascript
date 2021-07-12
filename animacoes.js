@@ -182,5 +182,49 @@ function criarTooltipBox(element){
     return tooltipBox;
 };
 };
-
 initToolTip();
+
+function initOutsideClick() {
+
+    const dropdownMenus = document.querySelectorAll('[data-dropdown]');
+
+    dropdownMenus.forEach((item) => {
+        // item.addEventListener('mouseover',handleClick);
+        // item.addEventListener('touchstart',handleClick);
+        // item.addEventListener('click',handleClick);
+        //outra forma de fazer abaixo
+        ['mouseover', 'touchstart', 'click'].forEach(userEvent => {
+            item.addEventListener(userEvent, handleClick);
+        })
+    });
+    function handleClick(event) {
+        event.preventDefault();
+        this.classList.add('active');
+        outsideClick(this, ['touchstart', 'click', 'mouseover'], () => {
+            this.classList.remove('active');
+        });
+    };
+    function outsideClick(element, events, callback) {
+        const html = document.documentElement;
+
+        if (!element.hasAttribute('[data-outside]')) {
+            events.forEach(userEvent => {
+                html.addEventListener(userEvent, handleOutsideClick);
+            });
+            element.setAttribute('data-outside', '');
+        };
+        function handleOutsideClick(event) {
+            if (!element.contains(event.target)) {
+                element.removeAttribute('[data-outside]');
+                events.forEach(userEvent => {
+                    html.removeEventListener(userEvent, handleOutsideClick);
+                })
+
+                callback();
+            };
+        };
+    };
+};
+initOutsideClick();
+
+
