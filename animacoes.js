@@ -227,4 +227,23 @@ function initOutsideClick() {
 };
 initOutsideClick();
 
+function initOpenMenu() {
+    const menuButton = document.querySelector('[data-menu="button"]');
+    const menuList = document.querySelector('[data-menu="list"]');
+    const eventos = ['click', 'touchstart'];
+
+    if (menuButton) {
+
+        function openMenu(event) {
+            console.log('event')
+            menuList.classList.toggle('active');
+            menuButton.classList.toggle('active');
+        };
+        eventos.forEach((evento) => {
+            menuButton.addEventListener(evento, openMenu);
+        })
+    };
+};
+initOpenMenu();
+
 
