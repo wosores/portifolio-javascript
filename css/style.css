@@ -516,4 +516,16 @@ body {
          border: none;
      }
 }
+[data-semana]::after{
+    display: inline-block;
+    content: '    ';
+    width: 7px;
+    height: 7px;
+    background: red;
+    border-radius: 43%;
+    border: 3px solid #000;
+}
+[data-semana].aberto::after{
+    background: green;
+}
 
