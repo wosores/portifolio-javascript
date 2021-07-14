@@ -246,4 +246,26 @@ function initOpenMenu() {
 };
 initOpenMenu();
 
+function initHoraFuncionamento() {
+    const horaDeFuncionamento = document.querySelector('[data-semana]');
+    //dataset pega o <li> onde tá o data e pega o parametro passado
+    //no de data-semana do li para puxar os numeros digita dataset.semana
+    //no caso de horario digita dataset.horario pois no <li> está data-horario
+    const diasSemana = horaDeFuncionamento.dataset.semana.split(',').map(Number);
+    const horarioDaSemana = horaDeFuncionamento.dataset.horario.split(',').map(Number);
+    //o resultado de horaDeFuncionamento.dataset.horario;  é 
+    //uma string mas melhor é trabalhar com array por isso o split no final
+    //e .map(Number) percorre o array transformando em numero.
+    const dataAgora = new Date();
+    const diaAgora = dataAgora.getDay();
+    const horaAgora = dataAgora.getHours();
+
+    const semanaAberto = diasSemana.indexOf(diaAgora) !== -1;
+    const horarioAberto = (horaAgora >= horarioDaSemana[0] && horaAgora < horarioDaSemana[1]);
+    if (semanaAberto && horarioAberto) {
+        horaDeFuncionamento.classList.add('aberto');
+    };
+};
+initHoraFuncionamento();
+
 
