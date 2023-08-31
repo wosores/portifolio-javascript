@@ -66,6 +66,15 @@ body {
   grid-column: 1 / 5;
 }
 
+.titulo0 {
+  font-family: 'Playfair Display SC', georgia;
+  font-size: 2rem;
+  line-height: 1;
+  font-weight: 150;
+  margin-bottom: .5rem;
+  grid-column: 1 / 5;
+}
+
 .titulo {
   font-family: 'Playfair Display SC', georgia;
   font-size: 6rem;
